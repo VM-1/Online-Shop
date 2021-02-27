@@ -1,0 +1,4 @@
+*.json
+gulpfile.js
+/#src/
+node_modules/
