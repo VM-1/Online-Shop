@@ -1938,6 +1938,7 @@ h6 {
   margin: 0 0 30px 0;
   width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .crumb__item {
@@ -2021,8 +2022,8 @@ h6 {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .sorting__text {
@@ -2070,10 +2071,16 @@ h6 {
           align-items: center;
 }
 
-.sorting__by svg {
+.sorting__by._up svg {
   -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
+}
+
+.sorting__by._down svg {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 /* """"""""""""""""""""""""""""""""""""""sorting end  """""""""""""""""""""""""""""""""""""""""""""" */
