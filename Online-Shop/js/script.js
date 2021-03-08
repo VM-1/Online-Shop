@@ -548,6 +548,19 @@ function bodyLockCheck(elem) {
 
 // ***********************Product to Cart start*****************
 
+let orders = document.querySelectorAll('.order');
+if (orders.length > 0) {
+	orders.forEach(order => {
+		event.preventDefault();
+		order.classList.add('_active');
+		document.querySelector('.category-product__control').classList.add('_active');
+	});
+}
+
+function orderremoveActive(arr) {
+	
+}
+
 // let favorive = document.querySelectorAll('.category-product__favorite');
 // let cart = document.querySelector('.cart');
 // let productCopy = document.querySelector('.product-copy');
