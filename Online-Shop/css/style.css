@@ -449,7 +449,6 @@ h6 {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: NotoSans;
   font-size: 30px;
   color: #071284;
   -webkit-transition: all 0.5s ease 0s;
@@ -1268,9 +1267,18 @@ h6 {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  background-color: #071284;
+  z-index: 999;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.page-up__inner {
   width: 40px;
   height: 40px;
+  background-color: #071284;
   -webkit-border-radius: 50%;
           border-radius: 50%;
   display: -webkit-box;
@@ -1285,12 +1293,9 @@ h6 {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 999;
-  -webkit-transition: opacity 0.5s ease 0s;
-  -o-transition: opacity 0.5s ease 0s;
-  transition: opacity 0.5s ease 0s;
-  opacity: 0;
-  visibility: hidden;
+  -webkit-transition: background 0.3s ease 0s;
+  -o-transition: background 0.3s ease 0s;
+  transition: background 0.3s ease 0s;
 }
 
 .page-up svg {
@@ -1676,13 +1681,64 @@ h6 {
 }
 
 .product-copy {
-  position: fixed;
+  position: absolute;
   top: -120%;
   left: -120%;
+  z-index: 500;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+}
+
+.product-copy._active {
+  opacity: 1;
+}
+
+.product-copy._active img {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
 }
 
 .product-copy img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transform-origin: top left;
+      -ms-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-animation: productCopyMov 1.5s linear normal paused 0s both;
+          animation: productCopyMov 1.5s linear normal paused 0s both;
+}
+
+@-webkit-keyframes productCopyMov {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes productCopyMov {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+    opacity: 0;
+  }
 }
 
 .price-product_old {
@@ -1789,7 +1845,7 @@ h6 {
   margin: 0 0 0 30px;
 }
 
-.product__category {
+.product__stock {
   margin: 15px 0 0 0;
 }
 
@@ -2057,7 +2113,6 @@ h6 {
 }
 
 .sorting__elem._active .sorting__link {
-  cursor: default;
   font-weight: 500;
 }
 
@@ -2173,7 +2228,7 @@ h6 {
     color: #004B97;
   }
 
-  .page-up:hover {
+  .page-up:hover .page-up__inner {
     background-color: #004B97;
   }
 
@@ -2407,7 +2462,7 @@ h6 {
     color: #004B97;
   }
 
-  .page-up:active {
+  .page-up:active .page-up__inner {
     background-color: #004B97;
   }
 

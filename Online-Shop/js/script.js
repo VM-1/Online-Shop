@@ -548,7 +548,7 @@ function bodyLockCheck(elem) {
 
 // ***********************Product to Cart start*****************
 
-// let favorive = document.querySelectorAll('.product__favorite');
+// let favorive = document.querySelectorAll('.category-product__favorite');
 // let cart = document.querySelector('.cart');
 // let productCopy = document.querySelector('.product-copy');
 // let productCopyImg = productCopy.querySelector('img');
@@ -556,10 +556,11 @@ function bodyLockCheck(elem) {
 // if (favorive.length > 0 && cart) {
 // 	favorive.forEach(elem => {
 // 		elem.addEventListener('click', function(e) {
-// 			let cartPos = getCoords(cart) + cart.width / 2;
-// 			console.log(cartPos);
-// 			favoriteParent = elem.closest('.product');
-// 			let productImg = favoriteParent.querySelector('.product__img img');
+// 			let cartPos = offset(cart);
+// 			// + cart.offsetWidth / 2
+// 			favoriteParent = elem.closest('.category-product');
+// 			let productPos = offset(favoriteParent);
+// 			let productImg = favoriteParent.querySelector('.category-product__img img');
 // 			let productImgSrc = productImg.getAttribute("src");
 // 			productCopyImg.setAttribute("src",productImgSrc);
 // 			if (productCopySource) {
@@ -567,8 +568,23 @@ function bodyLockCheck(elem) {
 // 			};
 // 			productCopy.style.width = `${productImg.width}px`;
 // 			productCopy.style.height = `${productImg.height}px`;
-// 			// productCopy.style.top = `${productPosTop}px`;
-// 			// productCopy.style.left = `${productPosLeft}px`;
+// 			productCopy.style.top = `${productPos.top}px`;
+// 			productCopy.style.left = `${productPos.left}px`;
+// 			productCopy.classList.add('_active');
+// 			let productMovementLeft = (cartPos.left - productPos.left) / 15;
+// 			let productMovementTop = (cartPos.top - productPos.top) / 15;
+// 			let productMov = setInterval(() => {
+// 				let productCopyPos = offset(productCopy)
+// 				productCopy.style.left = `${productCopyPos.left + productMovementLeft}px`;
+// 				productCopy.style.top = `${productCopyPos.top + productMovementTop}px`;
+// 				console.log(`${productCopyPos.top + productMovementTop}px`);
+// 			}, 100);
+// 			setTimeout(() => {
+// 				clearInterval(productMov);
+// 				productCopy.classList.add('_active');
+// 				productCopy.style.left = "-120%"
+// 				productCopy.style.top = "-120%"
+// 			}, 1500);
 // 		});
 // 	});
 // }
