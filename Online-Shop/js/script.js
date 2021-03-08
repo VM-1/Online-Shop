@@ -551,9 +551,11 @@ function bodyLockCheck(elem) {
 let orders = document.querySelectorAll('.order');
 if (orders.length > 0) {
 	orders.forEach(order => {
-		event.preventDefault();
-		order.classList.add('_active');
-		document.querySelector('.category-product__control').classList.add('_active');
+		order.addEventListener('click', function(e) {
+			event.preventDefault();
+			order.classList.add('_hide');
+			order.closest(".category-product").querySelector('.category-product__control').classList.add('_active');
+		});
 	});
 }
 

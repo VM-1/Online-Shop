@@ -1328,6 +1328,8 @@ h6 {
       -ms-flex-negative: 0;
           flex-shrink: 0;
   position: relative;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
 .hero__img {
@@ -1657,7 +1659,24 @@ h6 {
 }
 
 .category-product__control {
+  width: 100%;
+  margin: 0 auto;
   display: none;
+}
+
+.category-product__control._active {
+  display: block;
+}
+
+.category-product__control .control__top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .category-product__discount {
@@ -1760,6 +1779,10 @@ h6 {
   font-weight: 700;
   font-size: 18px;
   font-size: 18px;
+}
+
+.order._hide {
+  display: none;
 }
 
 .favorite-path {
